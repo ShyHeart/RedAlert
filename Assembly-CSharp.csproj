@@ -69,7 +69,19 @@
     <Compile Include="Assets\Scripts\BaseClass\IBaseUI.cs" />
     <Compile Include="Assets\Scripts\BaseClass\IGameSystem.cs" />
     <Compile Include="Assets\Scripts\CampSystem\CampSystem.cs" />
+    <Compile Include="Assets\Scripts\CharacterSystem\Attr\EnemyAttr.cs" />
+    <Compile Include="Assets\Scripts\CharacterSystem\Attr\ICharacterAttr.cs" />
+    <Compile Include="Assets\Scripts\CharacterSystem\Attr\SoldierAttr.cs" />
     <Compile Include="Assets\Scripts\CharacterSystem\CharacterSystem.cs" />
+    <Compile Include="Assets\Scripts\CharacterSystem\Enemy\EnemyElf.cs" />
+    <Compile Include="Assets\Scripts\CharacterSystem\Enemy\EnemyOgre.cs" />
+    <Compile Include="Assets\Scripts\CharacterSystem\Enemy\EnemyTroll.cs" />
+    <Compile Include="Assets\Scripts\CharacterSystem\Enemy\IEnemy.cs" />
+    <Compile Include="Assets\Scripts\CharacterSystem\ICharacter.cs" />
+    <Compile Include="Assets\Scripts\CharacterSystem\Soldier\ISoldier.cs" />
+    <Compile Include="Assets\Scripts\CharacterSystem\Soldier\SoldierCaptain.cs" />
+    <Compile Include="Assets\Scripts\CharacterSystem\Soldier\SoldierRookie.cs" />
+    <Compile Include="Assets\Scripts\CharacterSystem\Soldier\SoldierSergeant.cs" />
     <Compile Include="Assets\Scripts\EnergySystem\EnergySystem.cs" />
     <Compile Include="Assets\Scripts\GameEventSystem\GameEventSystem.cs" />
     <Compile Include="Assets\Scripts\GameFacade.cs" />
@@ -82,8 +94,8 @@
     <Compile Include="Assets\Scripts\StageSystem\StageSystem.cs" />
     <Compile Include="Assets\Scripts\UISystem\CampInfoUI.cs" />
     <Compile Include="Assets\Scripts\UISystem\GamePauseUI.cs" />
-    <Compile Include="Assets\Scripts\UISystem\GaneStateInfoUI.cs" />
-    <Compile Include="Assets\Scripts\UISystem\SolderInfoUi.cs" />
+    <Compile Include="Assets\Scripts\UISystem\GameStateInfoUI.cs" />
+    <Compile Include="Assets\Scripts\UISystem\SoldierInfoUI.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.14f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

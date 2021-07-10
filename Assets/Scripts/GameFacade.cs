@@ -4,37 +4,96 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-    public class GameFacade
+
+//外观模式  中介者
+public class GameFacade
+{
+
+    //私有的实例
+    private static GameFacade _instance = new GameFacade();
+    private bool m_IsGameOver = false;
+
+    //单例模式
+    public static GameFacade Instance { get { return _instance; } }
+
+    public bool isGameOver { get { return m_IsGameOver; } }
+
+
+    private GameFacade()
     {
 
-        //私有的实例
-        private static GameFacade _instance = new GameFacade();
-        private bool m_IsGameOver = false;
+    }
 
-        //单例模式
-        public static GameFacade Instance{get{return _instance;}}
+    //把各个系统定义出来
+    private ArchievementSystem _archievementSystem;
+    private CampSystem _campSystem;
+    private CharacterSystem _characterSystem;
+    private EnergySystem _energySystem;
+    private GameEventSystem _gameEventSystem;
+    private StageSystem _stageSystem;
 
-        public bool isGameOver{get{return m_IsGameOver;}}
+    private CampInfoUI _campInfoUi;
+    private GamePauseUI _gamePauseUi;
+    private GameStateInfoUI _gameStateInfoUi;
+    private SoldierInfoUI _solderInfoUi;
+
+    public void Init()
+    {
+        _archievementSystem = new ArchievementSystem();
+        _campSystem = new CampSystem();
+        _characterSystem = new CharacterSystem();
+        _energySystem = new EnergySystem();
+        _gameEventSystem = new GameEventSystem();
+        _stageSystem = new StageSystem();
+
+        _campInfoUi = new CampInfoUI();
+        _gamePauseUi = new GamePauseUI();
+        _gameStateInfoUi = new GameStateInfoUI();
+        _solderInfoUi = new SoldierInfoUI();
 
 
-        private GameFacade()
-        {
-
-        }
-
-        public void Init()
-        {
-
-        }
-
-        public void Updata()
-        {
-
-        }
-
-        public void Release()
-        {
-
-        }
+        _archievementSystem.Init();
+        _campSystem.Init();
+        _characterSystem.Init();
+        _energySystem.Init();
+        _gameEventSystem.Init();
+        _stageSystem.Init();
+        _campInfoUi.Init();
+        _gamePauseUi.Init();
+        _gameStateInfoUi.Init();
+        _solderInfoUi.Init();
 
     }
+
+    public void Update()
+    {
+        _archievementSystem.Update();
+        _campSystem.Update();
+        _characterSystem.Update();
+        _energySystem.Update();
+        _gameEventSystem.Update();
+        _stageSystem.Update();
+        _campInfoUi.Update();
+        _gamePauseUi.Update();
+        _gameStateInfoUi.Update();
+        _solderInfoUi.Update();
+
+    }
+
+    public void Release()
+    {
+        _archievementSystem.Release();
+        _campSystem.Release();
+        _characterSystem.Release();
+        _energySystem.Release();
+        _gameEventSystem.Release();
+        _stageSystem.Release();
+        _campInfoUi.Release();
+        _gamePauseUi.Release();
+        _gameStateInfoUi.Release();
+        _solderInfoUi.Release();
+
+
+    }
+
+}

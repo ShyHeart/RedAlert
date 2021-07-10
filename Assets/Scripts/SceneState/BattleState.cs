@@ -30,6 +30,6 @@ public class BattleState:ISceneState
             mController.SetState(new MainMenuState(mController));
         }
 
-         GameFacade.Instance.Updata();
+        GameFacade.Instance.Update();
     }
 }
