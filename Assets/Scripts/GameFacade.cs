@@ -7,11 +7,19 @@ using System.Threading.Tasks;
     public class GameFacade
     {
 
+        //私有的实例
+        private static GameFacade _instance = new GameFacade();
         private bool m_IsGameOver = false;
 
-        public bool isGameOver
+        //单例模式
+        public static GameFacade Instance{get{return _instance;}}
+
+        public bool isGameOver{get{return m_IsGameOver;}}
+
+
+        private GameFacade()
         {
-            get { return m_IsGameOver; }
+
         }
 
         public void Init()

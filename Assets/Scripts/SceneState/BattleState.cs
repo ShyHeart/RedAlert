@@ -15,21 +15,21 @@ public class BattleState:ISceneState
 
     public override void StateStart()
     {
-        _gameFacade.Init();
+        GameFacade.Instance.Init();
     }
 
     public override void StateEnd()
     {
-        _gameFacade.Release();
+         GameFacade.Instance.Release();
     }
 
     public override void StateUpdate()
     {
-        if (_gameFacade.isGameOver)
+        if ( GameFacade.Instance.isGameOver)
         {
             mController.SetState(new MainMenuState(mController));
         }
 
-        _gameFacade.Updata();
+         GameFacade.Instance.Updata();
     }
 }
