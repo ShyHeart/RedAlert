@@ -9,4 +9,27 @@ public class BattleState:ISceneState
     {
 
     }
+
+    //战斗模式子系统 兵营，关卡 角色管理 行为 成就
+    private GameFacade _gameFacade;
+
+    public override void StateStart()
+    {
+        _gameFacade.Init();
+    }
+
+    public override void StateEnd()
+    {
+        _gameFacade.Release();
+    }
+
+    public override void StateUpdate()
+    {
+        if (_gameFacade.isGameOver)
+        {
+            mController.SetState(new MainMenuState(mController));
+        }
+
+        _gameFacade.Updata();
+    }
 }
