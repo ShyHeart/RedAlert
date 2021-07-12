@@ -14,5 +14,15 @@ public abstract class ICharacter
     protected NavMeshAgent mNavMeshAgent;
     protected AudioSource mAudio;
 
+    protected IWeapon iWeapon;
 
+    public IWeapon weapon
+    {
+        set { iWeapon = value; }
+    }
+
+    public void Attack(Vector3 targetPosition)
+    {
+        iWeapon.Fire(targetPosition);
+    }
 }
