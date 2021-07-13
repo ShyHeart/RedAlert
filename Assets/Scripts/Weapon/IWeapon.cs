@@ -4,7 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-
+public enum WeaponType
+{
+    Gun=0,
+    Rifle=1,
+    Rocket=2,
+    MAX
+}
 public abstract class IWeapon
 {
     protected int matk;
@@ -23,6 +29,21 @@ public abstract class IWeapon
 
     public float atcRange { get { return atkRange; } }
     public int atk{get{return matk;}}
+    public ICharacter owenr { set { Owner = value; } }
+
+    public GameObject gameobject{get{return gameObject;}}
+
+    public IWeapon(int atk, float atkRange, GameObject gameObject)
+    {
+        matk = atk;
+        this.atkRange = atkRange;
+        this.gameObject = gameObject;
+        Transform effect = gameObject.transform.Find("Effect");
+        _particleSystem = effect.GetComponent<ParticleSystem>();
+        _line = effect.GetComponent<LineRenderer>();
+        _light = effect.GetComponent<Light>();
+        audio = effect.GetComponent<AudioSource>();
+    }
 
     public void Update()
     {
@@ -75,8 +96,7 @@ public abstract class IWeapon
 
     protected void DoPlaySound(string clipName)
     {
-        //AudioClip clip = FactoryManager.assetFactory.LoadAudioClip(clipName);
-        AudioClip clip = null;
+        AudioClip clip = FactoryManager.assetFactory.LoadAudioClip(clipName);
         audio.clip = clip;
         audio.Play();
     }

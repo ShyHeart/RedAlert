@@ -31,6 +31,8 @@ public class WeaponGun : IWeapon
         audio.clip = clip;
         audio.Play();
     }*/
+
+     
     protected override void PlayBulletEffect(Vector3 targetPosition)
     {
         DoPlayBulletEffect(0.05f, targetPosition);
@@ -46,4 +48,7 @@ public class WeaponGun : IWeapon
         _EffectDisplayTime = 0.2f;
     }
 
+    public WeaponGun(int atk, float atkRange, GameObject gameObject) : base(atk, atkRange, gameObject)
+    {
+    }
 }

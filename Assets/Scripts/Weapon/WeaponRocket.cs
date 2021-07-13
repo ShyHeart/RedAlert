@@ -45,4 +45,8 @@ public class WeaponRocket : IWeapon
     {
         _EffectDisplayTime = 0.4f;
     }
+
+    public WeaponRocket(int atk, float atkRange, GameObject gameObject) : base(atk, atkRange, gameObject)
+    {
+    }
 }

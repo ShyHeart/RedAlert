@@ -18,7 +18,13 @@ public abstract class ICharacter
 
     public IWeapon weapon
     {
-        set { mWeapon = value; }
+        set
+        {
+            mWeapon = value;
+            mWeapon.owenr = this;
+            GameObject chid = UnityTool.FindChild(mGameObject, "weapon-point");
+            UnityTool.Attach(chid,mWeapon.gameobject);
+        }
     }
 
     public Vector3 position
@@ -40,6 +46,20 @@ public abstract class ICharacter
     {
         get { return mWeapon.atcRange; }
     }
+
+    public ICharacterAttr attr{set{mAttr=value;}}
+
+    public GameObject gameobject
+    {
+        set
+        {
+            mGameObject = value;
+            mNavAgent = mGameObject.GetComponent<NavMeshAgent>();
+            mAudio = mGameObject.GetComponent<AudioSource>();
+            mAnim = mGameObject.GetComponentInChildren<Animation>();
+        }
+    }
+
 
     public void Update()
     {
@@ -84,13 +104,15 @@ public abstract class ICharacter
     protected void DoPlayEffect(string effectname)
     {
         //加载特效
-        GameObject effectGO;
+        GameObject effectGO = FactoryManager.assetFactory.LoadEffect(effectname);
+        effectGO.transform.position = position;
         //控制销毁
+        effectGO.AddComponent<DestoryForTime>();
     }
 
     protected void DoPlaySound(string soundName)
     {
-        AudioClip clip = null;
+        AudioClip clip = FactoryManager.assetFactory.LoadAudioClip(soundName);
         mAudio.clip = clip;
         mAudio.Play();
     }

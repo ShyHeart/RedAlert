@@ -9,18 +9,25 @@ public class ICharacterAttr
     protected string mName;
     protected int mMaxHp;
     protected float mMoveSpeed;
-
     protected int mCurrentHp;
-
     protected string mIconSprite;
+    protected string mPrefabName;
+
 
     protected int mLv;
     protected float mCritRate;//0-1暴击率
 
     protected int mDmgDescValue;
 
-    public ICharacterAttr(IAttrStrategy strategy)
+    public ICharacterAttr(IAttrStrategy strategy,int lv, string name,int maxHP,float moveSpeed,string iconSprite,string PrefabName)
     {
+        mName = name;
+        mMaxHp = maxHP;
+        mMoveSpeed = moveSpeed;
+        mIconSprite = iconSprite;
+        mPrefabName = PrefabName;
+        mLv = lv;
+        
         mStrategy = strategy;
         mDmgDescValue = mStrategy.GetDmgDescValue(mLv);
         mCurrentHp = mMaxHp + mStrategy.GetExtraHPValue(mLv);
@@ -32,11 +39,11 @@ public class ICharacterAttr
     //public int dmgDescValue{get{return mStrategy.GetDmgDescValue(mLv);}}
     public int currentHP{get{return mCurrentHp;}}
 
-    public void TakeDmage(int damege)
+    public void TakeDmage(int damage)
     {
-        damege -= mDmgDescValue;
-        if (damege < 5) damege = 5;
+        damage -= mDmgDescValue;
+        if (damage < 5) damage = 5;
 
-        mCurrentHp -= damege;
+        mCurrentHp -= damage;
     }
 }

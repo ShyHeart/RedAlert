@@ -96,7 +96,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 271}
   m_MaxSize: {x: 22006, y: 10021}
   vertical: 0
-  controlID: 123
+  controlID: 75
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewResizer:
-    m_CachedPref: -458
+    m_CachedPref: 308
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
@@ -355,7 +355,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Effects
+    - Assets/Resources/Characters/Soldier
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -367,7 +367,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 404c0000
     m_LastClickedID: 19520
-    m_ExpandedIDs: 00000000623400006434000066340000683400006a3400006c3400006e34000070340000723400007434000076340000783400007a3400007c340000
+    m_ExpandedIDs: 00000000623400006434000066340000683400006a3400006c3400006e34000070340000723400007434000076340000783400007a3400007c3400007e340000803400008234000084340000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -392,10 +392,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 387}
+    scrollPos: {x: 0, y: 483}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000623400006434000066340000683400006a3400006c3400006e34000070340000723400007434000076340000783400007a3400007c3400009c340000b8340000d0340000d2340000
+    m_ExpandedIDs: ffffffff00000000623400006434000066340000683400006a3400006c3400006e34000070340000723400007434000076340000783400007a3400007c3400007e3400008034000082340000843400001e35000020350000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
