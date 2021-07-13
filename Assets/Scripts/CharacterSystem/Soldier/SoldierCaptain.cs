@@ -6,5 +6,13 @@ using System.Threading.Tasks;
 
 public class SoldierCaptain : ISoldier
 {
+    protected override void PlaySound()
+    {
+        DoPlaySound("CaptainDeath");
+    }
 
+    protected override void PlayEffect()
+    {
+        DoPlayEffect("CaptainDeadEffect");
+    }
 }

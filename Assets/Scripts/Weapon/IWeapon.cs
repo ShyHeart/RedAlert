@@ -7,9 +7,9 @@ using UnityEngine;
 
 public abstract class IWeapon
 {
-    protected int atk;
+    protected int matk;
     protected float atkRange;
-    protected int atkplusValue;
+    //protected int atkplusValue;
 
     protected GameObject gameObject;
     protected ICharacter Owner;
@@ -20,6 +20,9 @@ public abstract class IWeapon
 
     protected float _EffectDisplayTime;
 
+
+    public float atcRange { get { return atkRange; } }
+    public int atk{get{return matk;}}
 
     public void Update()
     {

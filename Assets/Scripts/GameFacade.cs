@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 
 //外观模式  中介者
@@ -96,4 +97,9 @@ public class GameFacade
 
     }
 
+
+    public Vector3 GetEnemyTargetPosition()
+    {
+        return Vector3.zero;
+    }
 }

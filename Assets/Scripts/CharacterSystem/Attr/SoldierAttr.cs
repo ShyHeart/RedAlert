@@ -6,4 +6,7 @@ using System.Threading.Tasks;
 
 public class SoldierAttr:ICharacterAttr
 {
+    public SoldierAttr(IAttrStrategy strategy) : base(strategy)
+    {
+    }
 }
