@@ -6,36 +6,28 @@ using System.Threading.Tasks;
 
 public class ICharacterAttr
 {
-    protected string mName;
-    protected int mMaxHp;
-    protected float mMoveSpeed;
+
+    private CharacterBaseAttr mBaseAttr;
+
     protected int mCurrentHp;
-    protected string mIconSprite;
-    protected string mPrefabName;
-
-
     protected int mLv;
     protected float mCritRate;//0-1暴击率
 
     protected int mDmgDescValue;
 
-    public ICharacterAttr(IAttrStrategy strategy,int lv, string name,int maxHP,float moveSpeed,string iconSprite,string PrefabName)
+    public ICharacterAttr(IAttrStrategy strategy,int lv, CharacterBaseAttr baseAttr)
     {
-        mName = name;
-        mMaxHp = maxHP;
-        mMoveSpeed = moveSpeed;
-        mIconSprite = iconSprite;
-        mPrefabName = PrefabName;
+
         mLv = lv;
-        
+        mBaseAttr = baseAttr;
         mStrategy = strategy;
         mDmgDescValue = mStrategy.GetDmgDescValue(mLv);
-        mCurrentHp = mMaxHp + mStrategy.GetExtraHPValue(mLv);
+        mCurrentHp = baseAttr.maxHP + mStrategy.GetExtraHPValue(mLv);
     }
     //增加的最大血量  抵御的伤害值  暴击增加的伤害 的策略
 
     protected IAttrStrategy mStrategy;
-    public int critValue{get{return mStrategy.GetCritDmg(mCritRate);}}
+    public int critValue{get{return mStrategy.GetCritDmg(mBaseAttr.critRate);}}
     //public int dmgDescValue{get{return mStrategy.GetDmgDescValue(mLv);}}
     public int currentHP{get{return mCurrentHp;}}
 

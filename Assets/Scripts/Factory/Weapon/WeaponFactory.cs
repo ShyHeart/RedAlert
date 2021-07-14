@@ -8,32 +8,20 @@ public class WeaponFactory:IWeaponFactory
     public IWeapon CreateWeapon(WeaponType weaponType)
     {
         IWeapon weapon = null;
-        string assrtName = "";
-        switch (weaponType)
-        {
-            case WeaponType.Gun:
-                assrtName = "WeaponGun";
-                break;
-            case WeaponType.Rifle:
-                assrtName = "WeaponRifle";
-                break;
-            case WeaponType.Rocket:
-                assrtName = "WeaponRocket";
-                break;
-        }
+        WeaponBaseAttr baseAttr = FactoryManager.attrFactory.GetWeaponBaseAttr(weaponType);
 
-        GameObject weaponGO = FactoryManager.assetFactory.LoadWeapon(assrtName);
+        GameObject weaponGO = FactoryManager.assetFactory.LoadWeapon(baseAttr.assetName);
 
         switch (weaponType)
         {
             case WeaponType.Gun:
-                weapon = new WeaponGun(20,5,weaponGO);
+                weapon = new WeaponGun(baseAttr,weaponGO);
                 break;
             case WeaponType.Rifle:
-                weapon = new WeaponRifle(30, 7, weaponGO);
+                weapon = new WeaponRifle(baseAttr, weaponGO);
                 break;
             case WeaponType.Rocket:
-                weapon = new WeaponRocket(40, 8, weaponGO);
+                weapon = new WeaponRocket(baseAttr,  weaponGO);
                 break;
         }
 

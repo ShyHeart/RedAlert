@@ -96,7 +96,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 271}
   m_MaxSize: {x: 22006, y: 10021}
   vertical: 0
-  controlID: 75
+  controlID: 118
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -137,8 +137,8 @@ MonoBehaviour:
     y: 0
     width: 202
     height: 731
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 10}
   m_Panes:
   - {fileID: 10}
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 276
     height: 731
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 11}
@@ -354,8 +354,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders:
-    - Assets/Resources/Characters/Soldier
+    m_Folders: []
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -367,7 +366,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 404c0000
     m_LastClickedID: 19520
-    m_ExpandedIDs: 00000000623400006434000066340000683400006a3400006c3400006e34000070340000723400007434000076340000783400007a3400007c3400007e340000803400008234000084340000
+    m_ExpandedIDs: 00000000823400008434000086340000883400008a3400008c3400008e34000090340000923400009434000096340000983400009a3400009c3400009e340000a0340000a2340000a4340000a6340000a8340000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -392,10 +391,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 483}
+    scrollPos: {x: 0, y: 355}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000623400006434000066340000683400006a3400006c3400006e34000070340000723400007434000076340000783400007a3400007c3400007e3400008034000082340000843400001e35000020350000
+    m_ExpandedIDs: ffffffff00000000823400008434000086340000883400008c3400008e3400009034000094340000963400009a3400009c3400009e340000a2340000a4340000a6340000a8340000223500002c35000082360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

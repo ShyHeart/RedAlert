@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 public class EnemyAttr:ICharacterAttr
 {
-    public EnemyAttr(IAttrStrategy strategy,int lv, string name,int maxHP,float moveSpeed,string iconSprite,string PrefabName) : base(strategy,lv, name, maxHP, moveSpeed, iconSprite, PrefabName)
+    public EnemyAttr(IAttrStrategy strategy,int lv, CharacterBaseAttr baseAttr) :
+        base(strategy,lv, baseAttr)
     {
     }
 }
