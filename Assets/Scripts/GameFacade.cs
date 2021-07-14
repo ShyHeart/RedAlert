@@ -102,4 +102,9 @@ public class GameFacade
     {
         return Vector3.zero;
     }
+
+    public void ShowCampInfo(ICamp camp)
+    {
+        _campInfoUi.ShowCampInfo(camp);
+    }
 }

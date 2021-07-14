@@ -18,11 +18,11 @@ public class GameLoop : MonoBehaviour
         controller = new SceneStateController();
         //设置默认状态为开始状态
         controller.SetState(new StartState(controller),false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        controller.StateUpdate();
-    }
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        if(controller!=null)
+            controller.StateUpdate();
+	}
 }
