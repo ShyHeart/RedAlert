@@ -16,16 +16,9 @@ public abstract class ICharacter
     protected Animation mAnim;
     protected IWeapon mWeapon;
 
-    public IWeapon weapon
-    {
-        set
-        {
-            mWeapon = value;
-            mWeapon.owenr = this;
-            GameObject chid = UnityTool.FindChild(mGameObject, "weapon-point");
-            UnityTool.Attach(chid,mWeapon.gameobject);
-        }
-    }
+    protected bool mIsKilled = false;
+    protected bool mCanDestroy = false;
+    protected float mDestroyTimer = 2f;
 
     public Vector3 position
     {
@@ -33,8 +26,7 @@ public abstract class ICharacter
         {
             if (mGameObject == null)
             {
-                Debug.LogError("mGameObject为空");
-                return Vector3.zero;
+                Debug.LogError("mGameObject为空"); return Vector3.zero;
             }
 
             return mGameObject.transform.position;
@@ -42,14 +34,11 @@ public abstract class ICharacter
         }
     }
 
-    public float atkRange
-    {
-        get { return mWeapon.atcRange; }
-    }
-
-    public ICharacterAttr attr{set{mAttr=value;}}
-
-    public GameObject gameobject
+    public float atkRange { get { return mWeapon.atkRange; } }
+    public ICharacterAttr attr { set { mAttr = value; } get { return mAttr; } }
+    public bool canDestroy { get { return mCanDestroy; } }
+    public bool isKilled { get { return mIsKilled; } }
+    public GameObject gameObject
     {
         set
         {
@@ -58,15 +47,44 @@ public abstract class ICharacter
             mAudio = mGameObject.GetComponent<AudioSource>();
             mAnim = mGameObject.GetComponentInChildren<Animation>();
         }
+        get
+        {
+            return mGameObject;
+        }
     }
-
+    public IWeapon weapon
+    {
+        set
+        {
+            mWeapon = value;
+            mWeapon.owenr = this;
+            //Transform weaponPoint = mGameObject.transform.find TODO
+            GameObject child = UnityTool.FindChild(mGameObject, "weapon-point");
+            UnityTool.Attach(child, mWeapon.gameobject);
+        }
+        get
+        {
+            return mWeapon;
+        }
+    }
 
     public void Update()
     {
+        if (mIsKilled)
+        {
+            mDestroyTimer -= Time.deltaTime;
+            if (mDestroyTimer <= 0)
+            {
+                mCanDestroy = true;
+            }
+            return;
+        }
+
         mWeapon.Update();
     }
 
     public abstract void UpdateFSMAI(List<ICharacter> targets);
+
     public void Attack(ICharacter target)
     {
         mWeapon.Fire(target.position);
@@ -85,10 +103,16 @@ public abstract class ICharacter
 
         //死亡的效果   只有战士有
     }
-
-    public void Killed()
+    public virtual void Killed()
     {
+        mIsKilled = true;
+        mNavAgent.Stop();
 
+    }
+
+    public void Release()
+    {
+        GameObject.Destroy(mGameObject);
     }
     public void PlayAnim(string animName)
     {

@@ -22,6 +22,7 @@ public abstract class IEnemy:ICharacter
 
     public override void UpdateFSMAI(List<ICharacter>targets)
     {
+        if(mIsKilled)return;
         mFSMSystem.currentState.Reason(targets);
         mFSMSystem.currentState.Act(targets);
     }

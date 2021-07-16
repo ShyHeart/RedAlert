@@ -23,7 +23,7 @@ public class SoldierBuilder:ICharacterBuilder
         //添加武器
         GameObject characterGO = FactoryManager.assetFactory.LoadSoldier(mPrefabName);
         characterGO.transform.position = mSpawnPosition;
-        mCharacter.gameobject = characterGO;
+        mCharacter.gameObject = characterGO;
     }
 
     public override void AddWeapon()

@@ -100,7 +100,7 @@ public class GameFacade
 
     public Vector3 GetEnemyTargetPosition()
     {
-        return Vector3.zero;
+        return _stageSystem.targetPosition;
     }
 
     public void ShowCampInfo(ICamp camp)

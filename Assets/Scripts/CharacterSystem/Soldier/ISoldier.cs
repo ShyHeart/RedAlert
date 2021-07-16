@@ -24,7 +24,7 @@ public abstract class ISoldier:ICharacter
 
     public override void UpdateFSMAI(List<ICharacter> targets)
     {
-        //if (mIsKilled) return;
+        if (mIsKilled) return;
         mFSMSystem.currentState.Reason(targets);
         mFSMSystem.currentState.Act(targets);
     }

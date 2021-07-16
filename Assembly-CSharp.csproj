@@ -71,6 +71,7 @@
     <Compile Include="Assets\DesignModeCode\DM05Builder.cs" />
     <Compile Include="Assets\DesignModeCode\DM06Composite.cs" />
     <Compile Include="Assets\DesignModeCode\DM07Command.cs" />
+    <Compile Include="Assets\DesignModeCode\DM08ChainOfResponsibility.cs" />
     <Compile Include="Assets\Scripts\ArchievementSystem\ArchievementSystem.cs" />
     <Compile Include="Assets\Scripts\BaseClass\IBaseUI.cs" />
     <Compile Include="Assets\Scripts\BaseClass\IGameSystem.cs" />
@@ -135,6 +136,8 @@
     <Compile Include="Assets\Scripts\SceneState\MainMenuState.cs" />
     <Compile Include="Assets\Scripts\SceneState\SceneStateController.cs" />
     <Compile Include="Assets\Scripts\SceneState\StartState.cs" />
+    <Compile Include="Assets\Scripts\StageSystem\Handler\IStageHandler.cs" />
+    <Compile Include="Assets\Scripts\StageSystem\Handler\NormalStageHandler.cs" />
     <Compile Include="Assets\Scripts\StageSystem\StageSystem.cs" />
     <Compile Include="Assets\Scripts\Tools\UITool.cs" />
     <Compile Include="Assets\Scripts\Tools\UnityTool.cs" />

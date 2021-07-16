@@ -26,7 +26,7 @@ public abstract class IWeapon
     protected float _EffectDisplayTime;
 
 
-    public float atcRange { get { return mBaseAttr.atkRange; } }
+    public float atkRange { get { return mBaseAttr.atkRange; } }
     public int atk{get{return mBaseAttr.atk;}}
     public ICharacter owenr { set { Owner = value; } }
 

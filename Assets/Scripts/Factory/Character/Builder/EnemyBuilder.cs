@@ -20,7 +20,7 @@ public class EnemyBuilder : ICharacterBuilder
     {
         GameObject characterGO = FactoryManager.assetFactory.LoadEnemy(mPrefabName);
         characterGO.transform.position = mSpawnPosition;
-        mCharacter.gameobject = characterGO;
+        mCharacter.gameObject = characterGO;
     }
 
     public override void AddWeapon()
