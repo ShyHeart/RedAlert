@@ -14,8 +14,68 @@ public class SoldierCamp:ICamp
     {
         mLv = lv;
         mWeaponType = weaponType;
+        energyCostStrategy = new SoldierEnergyCostStrategy();
+        UpdateEnergyCost();
     }
 
     public override int lv { get{return mLv;} }
     public override WeaponType weaponType { get {return mWeaponType;} }
+
+    public override void Train()
+    {
+        //添加训练命令
+        TrainSoldierCommand cmd = new TrainSoldierCommand(mSoldierType,mWeaponType,mPosition,mLv);
+        //添加命令到集合里面
+        mCommands.Add(cmd);
+    }
+
+
+    protected override void UpdateEnergyCost()
+    {
+        mEnergyCostCampUpgrade = energyCostStrategy.GetCampUpgradeCost(mSoldierType, mLv);
+        mEnergyCostWeaponUpgrade = energyCostStrategy.GetWeaponUpgradeCost(mWeaponType);
+        mEnergyCostTrain = energyCostStrategy.GetSoldierTrainCost(mSoldierType, mLv);
+    }
+
+    public override void UpgradeCamp()
+    {
+        mLv++;
+        UpdateEnergyCost();
+    }
+
+    public override void UpgradeWeapon()
+    {
+        mWeaponType = mWeaponType + 1;
+        UpdateEnergyCost();
+    }
+
+    public override int energyCostCampUpgrade
+    {
+        get {
+            if (mLv == MAX_LV)
+                return -1;
+            else
+                return mEnergyCostCampUpgrade;
+        }
+    }
+
+    public override int energyCostWeaponUpgrade
+    {
+        get {
+            if (mWeaponType + 1 == WeaponType.MAX)
+            {
+                return -1;
+            } else
+            {
+                return mEnergyCostWeaponUpgrade;
+            }
+        }
+    }
+
+    public override int energyCostTrain
+    {
+        get {
+            return mEnergyCostTrain;
+        }
+    }
 }

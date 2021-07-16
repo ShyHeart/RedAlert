@@ -107,4 +107,34 @@ public class GameFacade
     {
         _campInfoUi.ShowCampInfo(camp);
     }
+
+    public void AddSoldier(ISoldier soldier)
+    {
+        _characterSystem.AddSoldier(soldier);
+    }
+
+    public void AddEnemy(IEnemy enemy)
+    {
+        _characterSystem.AddEnemy(enemy);
+    }
+
+    public bool TakeEnergy(int value)
+    {
+        return _energySystem.TakeEnergy(value);
+    }
+
+    public void RecycleEnergy(int value)
+    {
+        _energySystem.RecycleEnergy(value);
+        
+    }
+     
+    public void ShowMsg(string msg)
+    {
+        _gameStateInfoUi.ShowMsg(msg);
+    }
+    public void UpdateEnergySlider(int nowEnergy, int maxEnergy)
+    {
+        _gameStateInfoUi.UpdateEnergySlider(nowEnergy, maxEnergy);
+    }
 }
