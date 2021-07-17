@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 public class ICharacterAttr
 {
 
-    private CharacterBaseAttr mBaseAttr;
+    protected CharacterBaseAttr mBaseAttr;
 
     protected int mCurrentHp;
     protected int mLv;
@@ -28,8 +28,10 @@ public class ICharacterAttr
 
     protected IAttrStrategy mStrategy;
     public int critValue{get{return mStrategy.GetCritDmg(mBaseAttr.critRate);}}
+    public int currentHP { get { return mCurrentHp; } }
     //public int dmgDescValue{get{return mStrategy.GetDmgDescValue(mLv);}}
-    public int currentHP{get{return mCurrentHp;}}
+    public IAttrStrategy strategy { get { return mStrategy; } }
+    public CharacterBaseAttr baseAttr { get { return mBaseAttr; } }
 
     public void TakeDmage(int damage)
     {

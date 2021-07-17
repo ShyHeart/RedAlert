@@ -33,8 +33,8 @@ public class TrainCaptiveCommand:ITrainCommand
             default:
                 Debug.LogError("无法创建俘兵：" + mEnemyType);return;
         }
-        //GameFacade.Insance.RemoveEnemy(enemy);
-        //SoldierCaptive captive = new SoldierCaptive(enemy);
-        //GameFacade.Insance.AddSoldier(captive);
+        GameFacade.Instance.RemoveEnemy(enemy);
+        SoldierCaptive captive = new SoldierCaptive(enemy);
+        GameFacade.Instance.AddSoldier(captive);
     }
 }
