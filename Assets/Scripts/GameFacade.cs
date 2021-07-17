@@ -64,6 +64,7 @@ public class GameFacade
         _gameStateInfoUi.Init();
         _solderInfoUi.Init();
 
+        LoadMemento();
     }
 
     public void Update()
@@ -94,7 +95,7 @@ public class GameFacade
         _gameStateInfoUi.Release();
         _solderInfoUi.Release();
 
-
+        CreateMemento();
     }
 
 
@@ -153,4 +154,18 @@ public class GameFacade
     {
         _gameEventSystem.NotifySubject(eventType);
     }
+
+    private void LoadMemento()
+    {
+        AchievementMemento memento = new AchievementMemento();
+        memento.LoadData();
+        _archievementSystem.SetMemento(memento);
+    }
+
+    private void CreateMemento()
+    {
+        AchievementMemento memento= _archievementSystem.CreateMemento();
+        memento.SaveData();
+    }
+
 }

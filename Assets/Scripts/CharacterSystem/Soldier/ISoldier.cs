@@ -70,8 +70,4 @@ public abstract class ISoldier:ICharacter
     protected abstract void PlayEffect();
 
 
-    //public override void RunVisitor(ICharacterVisitor visitor)
-    //{
-    //    visitor.VisitSoldier(this);
-    //}
 }

@@ -35,4 +35,26 @@ public class ArchievementSystem : IGameSystem
         }
         //Debug.Log("MaxStageLv" + mMaxStageLv);
     }
+
+    public AchievementMemento CreateMemento()
+    {
+        //PlayerPrefs.SetInt("EnemyKilledCount", mEnemyKilledCount);
+        //PlayerPrefs.SetInt("SoldierKilledCount", mSoldieryKilledCount);
+        //PlayerPrefs.SetInt("MaxStageLv", mMaxStageLv);
+        AchievementMemento memento = new AchievementMemento();
+        memento.enemyKilledCount = mEnemyKilledCount;
+        memento.soldieryKilledCount = mSoldieryKilledCount;
+        memento.maxStageLv = mMaxStageLv;
+        return memento;
+    }
+
+    public void SetMemento( AchievementMemento memento )
+    {
+        //mEnemyKilledCount = PlayerPrefs.GetInt("EnemyKilledCount" );
+        //mSoldieryKilledCount=PlayerPrefs.GetInt("SoldierKilledCount" );
+        //mMaxStageLv=PlayerPrefs.GetInt("MaxStageLv");
+        mEnemyKilledCount = memento.enemyKilledCount;
+        mSoldieryKilledCount = memento.soldieryKilledCount;
+        mMaxStageLv = memento.maxStageLv;
+    }
 }

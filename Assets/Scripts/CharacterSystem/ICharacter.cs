@@ -84,7 +84,6 @@ public abstract class ICharacter
     }
 
     public abstract void UpdateFSMAI(List<ICharacter> targets);
-
     public void Attack(ICharacter target)
     {
         mWeapon.Fire(target.position);
