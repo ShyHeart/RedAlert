@@ -61,4 +61,8 @@ public abstract class IEnemy:ICharacter
         //Debug.Log("Killed");
     }
 
+    public override void RunVisitor(ICharacterVisitor visitor)
+    {
+        visitor.VisitEnemy(this);
+    }
 }

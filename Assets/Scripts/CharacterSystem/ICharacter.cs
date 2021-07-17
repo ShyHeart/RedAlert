@@ -84,6 +84,7 @@ public abstract class ICharacter
     }
 
     public abstract void UpdateFSMAI(List<ICharacter> targets);
+    public abstract void RunVisitor(ICharacterVisitor visitor);
     public void Attack(ICharacter target)
     {
         mWeapon.Fire(target.position);
@@ -93,9 +94,9 @@ public abstract class ICharacter
         target.UnderAttack(mWeapon.atk+mAttr.critValue);
     }
 
-    public virtual void UnderAttack(int damag)
+    public virtual void UnderAttack(int damage)
     {
-        mAttr.TakeDmage(damag);
+        mAttr.TakeDmage(damage);
 
         //被攻击的效果 音效 视效  只有敌人有
 

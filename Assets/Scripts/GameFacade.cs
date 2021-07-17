@@ -168,4 +168,8 @@ public class GameFacade
         memento.SaveData();
     }
 
+    public void RunVisitor(ICharacterVisitor visitor)
+    {
+        _characterSystem.RunVisitor(visitor);
+    }
 }
