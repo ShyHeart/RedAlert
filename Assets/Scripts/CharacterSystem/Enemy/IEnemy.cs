@@ -40,9 +40,10 @@ public abstract class IEnemy:ICharacter
         mFSMSystem.AddState(chaseState, attackState);
     }
 
-    public override void UnderAttack(int damag)
+    public override void UnderAttack(int damage)
     {
-        base.UnderAttack(damag);
+        if (mIsKilled) return;
+        base.UnderAttack(damage);
         PlayEffect();
         if (mAttr.currentHP <= 0)
         {
@@ -51,6 +52,13 @@ public abstract class IEnemy:ICharacter
 
     }
 
-    protected abstract void PlayEffect();
+    public abstract void PlayEffect();
+
+    public override void Killed()
+    {
+        base.Killed();
+        GameFacade.Instance.NotifySubject(GameEventType.EnemyKilled);
+        //Debug.Log("Killed");
+    }
 
 }

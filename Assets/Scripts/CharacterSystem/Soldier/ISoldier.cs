@@ -49,7 +49,7 @@ public abstract class ISoldier:ICharacter
 
     public override void UnderAttack(int damage)
     {
-        //if (mIsKilled) return;
+        if (mIsKilled) return;
         base.UnderAttack(damage);
 
         if (mAttr.currentHP <= 0)
@@ -60,11 +60,11 @@ public abstract class ISoldier:ICharacter
         }
     }
 
-    //public override void Killed()
-    //{
-    //    base.Killed();
-    //    GameFacade.Insance.NotifySubject(GameEventType.SoldierKilled);
-    //}
+    public override void Killed()
+    {
+        base.Killed();
+        GameFacade.Instance.NotifySubject(GameEventType.SoldierKilled);
+    }
 
     protected abstract void PlaySound();
     protected abstract void PlayEffect();

@@ -118,6 +118,10 @@ public class GameFacade
         _characterSystem.AddEnemy(enemy);
     }
 
+    public void RemoveEnemy(IEnemy enemy)
+    {
+        _characterSystem.RemoveEnemey(enemy);
+    }
     public bool TakeEnergy(int value)
     {
         return _energySystem.TakeEnergy(value);
@@ -136,5 +140,17 @@ public class GameFacade
     public void UpdateEnergySlider(int nowEnergy, int maxEnergy)
     {
         _gameStateInfoUi.UpdateEnergySlider(nowEnergy, maxEnergy);
+    }
+    public void RegisterObserver(GameEventType eventType, IGameEventObserver observer)
+    {
+        _gameEventSystem.RegisterObserver(eventType,observer);
+    }
+    public void RemoveObserver(GameEventType eventType, IGameEventObserver observer){
+        _gameEventSystem.RemoveObserver(eventType,observer);
+    }
+
+    public void NotifySubject(GameEventType eventType)
+    {
+        _gameEventSystem.NotifySubject(eventType);
     }
 }

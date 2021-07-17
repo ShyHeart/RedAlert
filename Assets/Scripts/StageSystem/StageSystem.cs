@@ -18,6 +18,7 @@ public class StageSystem : IGameSystem
         base.Init();
         InitPosition();
         InitStageChain();
+        mFacade.RegisterObserver(GameEventType.EnemyKilled, new EnemyKilledObserverStageSystem(this));
     }
 
     public override void Update()
@@ -95,6 +96,7 @@ public class StageSystem : IGameSystem
     {
         //Debug.Log("EnterNextStage");
         mLv++;
+        mFacade.NotifySubject(GameEventType.NewStage);
     }
 
     public Vector3 targetPosition
